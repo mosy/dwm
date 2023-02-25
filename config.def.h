@@ -44,11 +44,11 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
+	{ "|M|",      centeredmaster },
+	{ ">M>",      centeredfloatingmaster },
 	{ "[]=",      tile },    /* first entry is default */
 	{ "><>",      NULL },    /* no layout function means floating behavior */
 	{ "[M]",      monocle },
-	{ "|M|",      centeredmaster },
-	{ ">M>",      centeredfloatingmaster },
 };
 
 /* key definitions */
@@ -72,6 +72,10 @@ static const Key keys[] = {
 	{ MODKEY, 			XK_w, 	   spawn, 		SHCMD("google-chrome-stable") },
 	{ MODKEY, 			XK_r, 	   spawn, 		SHCMD("evince") },
 	{ MODKEY, 			XK_e, 	   spawn, 		SHCMD("thunar") },
+	{ MODKEY|ShiftMask,		XK_Escape, spawn, 		SHCMD("slock") },
+	{ 0,				XK_Print,  spawn,		SHCMD("maim -s ~/bilder/bilde-$(date '+%H%M-%S').png") },
+	{ MODKEY|ShiftMask,		XK_s,      spawn,		SHCMD("maim -s | xclip -sel clip -t image/png") },
+	{ MODKEY|ShiftMask,		XK_t,      spawn,		SHCMD("maim -s| tesseract - - -l nor | xclip -sel clip") },
 	{ MODKEY,                       XK_p,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
