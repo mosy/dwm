@@ -76,7 +76,7 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask,		XK_s,      spawn,		SHCMD("maim -s | xclip -sel clip -t image/png") },
 	{ MODKEY|ShiftMask,		XK_t,      spawn,		SHCMD("maim -s| tesseract - - -l nor | xclip -sel clip") },
 	{ MODKEY,        		XK_c,      spawn,		SHCMD("cat ~/.local/share/clip |xclip -sel clip") },
-	{ MODKEY|ShiftMask,		XK_d,      spawn,		SHCMD("setxkbmap us -print|xkbcomp - $DISPLAY") }, //Reset keymap after vmplayer 
+	{ MODKEY|ShiftMask,		XK_d,      spawn,		SHCMD("cat ~/.kbmap|xkbcomp - $DISPLAY") }, //Reset keymap after vmplayer 
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,             XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,                       XK_b,      togglebar,      {0} },
